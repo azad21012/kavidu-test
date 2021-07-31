@@ -16,6 +16,12 @@ opt.add_experimental_option("prefs", { \
     "profile.default_content_setting_values.media_stream_mic": 1, 
     "profile.default_content_setting_values.media_stream_camera": 1,
 })
+opt.binary_location = "/usr/bin/google-chrome"    #chrome binary location specified here
+opt.add_argument("--start-maximized") #open Browser in maximized mode
+opt.add_argument("--no-sandbox") #bypass OS security model
+opt.add_argument("--disable-dev-shm-usage") #overcome limited resource problems
+opt.add_experimental_option("excludeSwitches", ["enable-automation"])
+opt.add_experimental_option('useAutomationExtension', False)
 
 driver = webdriver.Chrome(path,options=opt)
 
